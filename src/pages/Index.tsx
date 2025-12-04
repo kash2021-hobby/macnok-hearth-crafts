@@ -5,22 +5,14 @@ import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { StorySection } from "@/components/home/StorySection";
 import { ImpactSection } from "@/components/home/ImpactSection";
 import { Testimonials } from "@/components/home/Testimonials";
-
 const Index = () => {
-  return (
-    <Layout>
+  return <Layout>
       <Hero />
-      <Categories />
-      <FeaturedProducts
-        title="Our Collection"
-        subtitle="Handcrafted treasures from Arunachal Pradesh"
-        limit={8}
-      />
+      <Categories className="border-sidebar-ring bg-[#364d37]" />
+      <FeaturedProducts title="Our Collection" subtitle="Handcrafted treasures from Arunachal Pradesh" limit={8} />
       <StorySection />
       <ImpactSection />
       <Testimonials />
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Index;
