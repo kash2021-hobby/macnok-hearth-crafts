@@ -20,18 +20,14 @@ export const Navbar = () => {
       <nav className="container-main">
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Mobile menu button */}
-          <button
-            className="lg:hidden p-2 -ml-2"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
+          <button className="lg:hidden p-2 -ml-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <span className="font-serif text-xl lg:text-2xl font-semibold tracking-tight text-foreground">
-              House of Macnok
+              House of Ltabai
             </span>
           </Link>
 
