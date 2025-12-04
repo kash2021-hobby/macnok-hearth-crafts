@@ -3,26 +3,24 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import artisanStory from "@/assets/artisan-story.jpg";
-
 export const StorySection = () => {
-  return (
-    <section className="py-20 lg:py-28 overflow-hidden">
+  return <section className="py-20 lg:py-28 overflow-hidden">
       <div className="container-main">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: -50
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.7
+        }} className="relative">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden">
-              <img
-                src={artisanStory}
-                alt="Artisan at work"
-                className="w-full h-full object-cover"
-              />
+              <img alt="Artisan at work" className="w-full h-full object-cover" src="/lovable-uploads/f0e6c69a-54b5-4b06-9d0a-30e61baa5172.webp" />
             </div>
             {/* Decorative elements */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full -z-10" />
@@ -30,13 +28,18 @@ export const StorySection = () => {
           </motion.div>
 
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:pl-8"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: 50
+        }} whileInView={{
+          opacity: 1,
+          x: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.7,
+          delay: 0.2
+        }} className="lg:pl-8">
             <span className="text-sm font-medium tracking-wider text-primary uppercase mb-4 block">
               Our Story
             </span>
@@ -88,6 +91,5 @@ export const StorySection = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
