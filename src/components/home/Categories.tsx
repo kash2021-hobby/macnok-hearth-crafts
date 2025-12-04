@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { categories } from "@/data/products";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-export const Categories = () => {
+interface CategoriesProps {
+  className?: string;
+}
+
+export const Categories = ({ className }: CategoriesProps) => {
   return (
-    <section className="py-20 lg:py-28">
+    <section className={cn("py-20 lg:py-28", className)}>
       <div className="container-main">
         <div className="text-center mb-12">
           <h2 className="font-serif text-3xl lg:text-4xl font-semibold mb-4">
