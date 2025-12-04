@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, ShoppingBag, Search, User } from "lucide-react";
+import { Menu, X, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/context/CartContext";
+import { ShopifyCartDrawer } from "./ShopifyCartDrawer";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Shop", href: "/shop" },
-  { name: "New Arrivals", href: "/shop?filter=new" },
-  { name: "Best Sellers", href: "/shop?filter=bestseller" },
   { name: "About", href: "/about" },
   { name: "Artisans", href: "/artisans" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { totalItems, setIsCartOpen } = useCart();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
@@ -58,19 +56,7 @@ export const Navbar = () => {
             <Button variant="ghost" size="icon" className="hidden sm:flex">
               <User className="h-5 w-5" />
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="relative"
-              onClick={() => setIsCartOpen(true)}
-            >
-              <ShoppingBag className="h-5 w-5" />
-              {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-primary-foreground text-xs flex items-center justify-center font-medium">
-                  {totalItems}
-                </span>
-              )}
-            </Button>
+            <ShopifyCartDrawer />
           </div>
         </div>
 

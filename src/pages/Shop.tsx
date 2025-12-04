@@ -1,49 +1,33 @@
-import { useState, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
-import { Filter, Grid3X3, LayoutGrid } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Grid3X3, LayoutGrid, ShoppingBag, Loader2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
-import { ProductCard } from "@/components/ProductCard";
+import { ShopifyProductCard } from "@/components/ShopifyProductCard";
 import { Button } from "@/components/ui/button";
-import { products, categories } from "@/data/products";
+import { fetchProducts, ShopifyProduct } from "@/lib/shopify";
 import { motion } from "framer-motion";
 
 const Shop = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [viewMode, setViewMode] = useState<"grid" | "large">("grid");
-  
-  const categoryFilter = searchParams.get("category");
-  const typeFilter = searchParams.get("filter");
+  const [products, setProducts] = useState<ShopifyProduct[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const filteredProducts = useMemo(() => {
-    let result = [...products];
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setIsLoading(true);
+        const data = await fetchProducts(50);
+        setProducts(data);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+        setError("Failed to load products");
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-    if (categoryFilter) {
-      result = result.filter((p) => p.category === categoryFilter);
-    }
-
-    if (typeFilter === "new") {
-      result = result.filter((p) => p.isNew);
-    } else if (typeFilter === "bestseller") {
-      result = result.filter((p) => p.isBestSeller);
-    }
-
-    return result;
-  }, [categoryFilter, typeFilter]);
-
-  const clearFilters = () => {
-    setSearchParams({});
-  };
-
-  const setCategory = (slug: string | null) => {
-    const params = new URLSearchParams(searchParams);
-    if (slug) {
-      params.set("category", slug);
-    } else {
-      params.delete("category");
-    }
-    params.delete("filter");
-    setSearchParams(params);
-  };
+    loadProducts();
+  }, []);
 
   return (
     <Layout>
@@ -56,13 +40,7 @@ const Shop = () => {
             className="text-center"
           >
             <h1 className="font-serif text-4xl lg:text-5xl font-semibold mb-4">
-              {categoryFilter
-                ? categories.find((c) => c.slug === categoryFilter)?.name || "Shop"
-                : typeFilter === "new"
-                ? "New Arrivals"
-                : typeFilter === "bestseller"
-                ? "Best Sellers"
-                : "Our Collection"}
+              Our Collection
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Discover handcrafted treasures made with love by skilled artisans from Arunachal Pradesh.
@@ -71,56 +49,61 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* Filters & Products */}
+      {/* Products */}
       <section className="py-12 lg:py-16">
         <div className="container-main">
-          {/* Filter Bar */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 pb-6 border-b border-border">
-            <div className="flex flex-wrap gap-2">
+          {/* View Controls */}
+          <div className="flex justify-between items-center gap-4 mb-8 pb-6 border-b border-border">
+            <span className="text-sm text-muted-foreground">
+              {products.length} products
+            </span>
+            <div className="flex gap-1">
               <Button
-                variant={!categoryFilter && !typeFilter ? "default" : "outline"}
-                size="sm"
-                onClick={clearFilters}
+                variant={viewMode === "grid" ? "secondary" : "ghost"}
+                size="icon"
+                onClick={() => setViewMode("grid")}
               >
-                All
+                <Grid3X3 className="h-4 w-4" />
               </Button>
-              {categories.map((cat) => (
-                <Button
-                  key={cat.id}
-                  variant={categoryFilter === cat.slug ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setCategory(cat.slug)}
-                >
-                  {cat.name}
-                </Button>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground">
-                {filteredProducts.length} products
-              </span>
-              <div className="flex gap-1">
-                <Button
-                  variant={viewMode === "grid" ? "secondary" : "ghost"}
-                  size="icon"
-                  onClick={() => setViewMode("grid")}
-                >
-                  <Grid3X3 className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant={viewMode === "large" ? "secondary" : "ghost"}
-                  size="icon"
-                  onClick={() => setViewMode("large")}
-                >
-                  <LayoutGrid className="h-4 w-4" />
-                </Button>
-              </div>
+              <Button
+                variant={viewMode === "large" ? "secondary" : "ghost"}
+                size="icon"
+                onClick={() => setViewMode("large")}
+              >
+                <LayoutGrid className="h-4 w-4" />
+              </Button>
             </div>
           </div>
 
+          {/* Loading State */}
+          {isLoading && (
+            <div className="flex flex-col items-center justify-center py-20">
+              <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
+              <p className="text-muted-foreground">Loading products...</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && !isLoading && (
+            <div className="text-center py-20">
+              <p className="text-destructive mb-4">{error}</p>
+              <Button onClick={() => window.location.reload()}>Try Again</Button>
+            </div>
+          )}
+
+          {/* Empty State */}
+          {!isLoading && !error && products.length === 0 && (
+            <div className="text-center py-20">
+              <ShoppingBag className="h-16 w-16 text-muted-foreground/30 mx-auto mb-6" />
+              <h2 className="text-2xl font-serif font-semibold mb-2">No products yet</h2>
+              <p className="text-muted-foreground max-w-md mx-auto">
+                We're working on adding beautiful handcrafted products. Check back soon or tell us what product you'd like to see!
+              </p>
+            </div>
+          )}
+
           {/* Products Grid */}
-          {filteredProducts.length > 0 ? (
+          {!isLoading && !error && products.length > 0 && (
             <div
               className={`grid gap-4 lg:gap-6 ${
                 viewMode === "grid"
@@ -128,15 +111,9 @@ const Shop = () => {
                   : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
               }`}
             >
-              {filteredProducts.map((product, index) => (
-                <ProductCard key={product.id} product={product} index={index} />
+              {products.map((product, index) => (
+                <ShopifyProductCard key={product.node.id} product={product} index={index} />
               ))}
-            </div>
-          ) : (
-            <div className="text-center py-20">
-              <Filter className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
-              <p className="text-muted-foreground mb-4">No products found</p>
-              <Button onClick={clearFilters}>Clear Filters</Button>
             </div>
           )}
         </div>
