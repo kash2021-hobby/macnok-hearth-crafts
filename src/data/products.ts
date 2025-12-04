@@ -6,31 +6,31 @@ import categoryHair from "@/assets/category-hair.jpg";
 export const categories: Category[] = [
   {
     id: "1",
-    name: "Earrings",
-    slug: "earrings",
+    name: "Accessories",
+    slug: "accessories",
     image: categoryEarrings,
-    description: "Handcrafted tribal earrings with traditional beadwork",
+    description: "Handcrafted jewelry, bags, and adornments by tribal artisans",
   },
   {
     id: "2",
-    name: "Bags",
-    slug: "bags",
+    name: "Decor",
+    slug: "decor",
     image: categoryBags,
-    description: "Woven bags featuring ancestral patterns",
+    description: "Artisan home decor celebrating ancestral craftsmanship",
   },
   {
     id: "3",
-    name: "Hair Accessories",
-    slug: "hair-accessories",
+    name: "Wellness",
+    slug: "wellness",
     image: categoryHair,
-    description: "Natural fiber scrunchies and hair adornments",
+    description: "Natural wellness products rooted in traditional wisdom",
   },
   {
     id: "4",
-    name: "Handmade Crafts",
-    slug: "handmade",
+    name: "Luxe Collection",
+    slug: "luxe-collection",
     image: categoryEarrings,
-    description: "Unique artisan-made home decor and gifts",
+    description: "Premium handcrafted pieces for the discerning collector",
   },
 ];
 
