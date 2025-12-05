@@ -58,11 +58,11 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   return (
     <section
       className={cn(
-        "relative w-full h-screen overflow-hidden bg-background flex flex-col items-center justify-center text-center px-4",
+        "relative w-full h-screen overflow-hidden bg-background flex flex-col items-center justify-center text-center px-4 -mt-16 lg:-mt-20",
         className
       )}
     >
-      <div className="z-10 flex flex-col items-center">
+      <div className="z-10 flex flex-col items-center pt-16 lg:pt-20">
         <motion.div
           initial="hidden"
           animate="show"
