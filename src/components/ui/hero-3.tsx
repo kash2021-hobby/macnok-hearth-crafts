@@ -65,8 +65,8 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
     }
   };
   const duplicatedImages = [...images, ...images];
-  return <section className={cn("relative w-full h-screen overflow-hidden bg-background flex flex-col items-center justify-center text-center px-4 -mt-16 lg:-mt-20", className)}>
-      <div className="z-10 flex flex-col items-center pt-8 lg:pt-0">
+  return <section className={cn("relative w-full h-screen overflow-hidden bg-background flex flex-col items-center justify-start text-center px-4 -mt-16 lg:-mt-20", className)}>
+      <div className="z-10 flex flex-col items-center pt-24 lg:pt-28">
         <motion.div initial="hidden" animate="show" variants={FADE_IN_ANIMATION_VARIANTS} className="mb-4 inline-block rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm font-medium text-muted-foreground backdrop-blur-sm">
           {tagline}
         </motion.div>
