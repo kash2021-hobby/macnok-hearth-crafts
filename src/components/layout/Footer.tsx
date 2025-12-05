@@ -6,10 +6,10 @@ import { Input } from "@/components/ui/input";
 const footerLinks = {
   shop: [
     { name: "All Products", href: "/shop" },
-    { name: "Earrings", href: "/shop?category=earrings" },
-    { name: "Bags", href: "/shop?category=bags" },
-    { name: "Hair Accessories", href: "/shop?category=hair-accessories" },
-    { name: "New Arrivals", href: "/shop?filter=new" },
+    { name: "Accessories", href: "/shop?category=accessories" },
+    { name: "Decor", href: "/shop?category=decor" },
+    { name: "Wellness", href: "/shop?category=wellness" },
+    { name: "Luxe Collection", href: "/shop?category=luxe-collection" },
   ],
   about: [
     { name: "Our Story", href: "/about" },
