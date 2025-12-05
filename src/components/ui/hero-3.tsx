@@ -131,16 +131,17 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
         </motion.div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-full h-1/3 md:h-2/5 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]">
+      <div className="absolute bottom-0 left-0 w-full h-1/3 md:h-2/5 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] overflow-hidden">
         <motion.div
           className="flex gap-4"
           animate={{
-            x: ["-100%", "0%"],
-            transition: {
-              ease: "linear",
-              duration: 40,
-              repeat: Infinity,
-            },
+            x: ["0%", "-50%"],
+          }}
+          transition={{
+            ease: "linear",
+            duration: 30,
+            repeat: Infinity,
+            repeatType: "loop",
           }}
         >
           {duplicatedImages.map((src, index) => (
