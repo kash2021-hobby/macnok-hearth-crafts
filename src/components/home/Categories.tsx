@@ -32,7 +32,7 @@ export const Categories = ({ className }: CategoriesProps) => {
               <Link
                 to={{
                   pathname: "/shop",
-                  search: `?category=${category.slug}`
+                  search: `category=${category.slug}`
                 }}
                 className="group block relative aspect-[4/5] rounded-2xl overflow-hidden hover-lift"
               >

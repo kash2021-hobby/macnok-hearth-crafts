@@ -93,7 +93,7 @@ const Shop = () => {
                 <>
                   <ChevronRight className="h-4 w-4" />
                   <Link 
-                    to={`/shop?category=${category}`}
+                    to={{ pathname: "/shop", search: `category=${category}` }}
                     className={`hover:text-foreground transition-colors ${!productType ? 'text-foreground font-medium' : ''}`}
                   >
                     {currentCategory?.name || category}
@@ -134,7 +134,7 @@ const Shop = () => {
                       <Link
                         to={{
                           pathname: "/shop",
-                          search: `?category=${category}`
+                          search: `category=${category}`
                         }}
                         className={`block py-2 px-3 rounded-md text-sm transition-colors ${
                           !productType
@@ -150,7 +150,7 @@ const Shop = () => {
                         <Link
                           to={{
                             pathname: "/shop",
-                            search: `?category=${category}&type=${encodeURIComponent(type)}`
+                            search: `category=${category}&type=${encodeURIComponent(type)}`
                           }}
                           className={`block py-2 px-3 rounded-md text-sm transition-colors ${
                             productType === type
