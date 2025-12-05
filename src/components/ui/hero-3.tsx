@@ -20,7 +20,7 @@ const ActionButton = ({
   children: React.ReactNode;
   href?: string;
 }) => {
-  const buttonClasses = "mt-16 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75";
+  const buttonClasses = "mt-24 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75";
   if (href) {
     return <motion.div whileHover={{
       scale: 1.05
