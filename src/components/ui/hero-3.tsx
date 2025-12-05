@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 interface AnimatedMarqueeHeroProps {
@@ -9,25 +10,41 @@ interface AnimatedMarqueeHeroProps {
   title: React.ReactNode;
   description: string;
   ctaText: string;
+  ctaHref?: string;
   images: string[];
   className?: string;
 }
 
-const ActionButton = ({ children }: { children: React.ReactNode }) => (
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className="mt-8 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75"
-  >
-    {children}
-  </motion.button>
-);
+const ActionButton = ({ children, href }: { children: React.ReactNode; href?: string }) => {
+  const buttonClasses = "mt-8 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75";
+  
+  if (href) {
+    return (
+      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <Link to={href} className={buttonClasses}>
+          {children}
+        </Link>
+      </motion.div>
+    );
+  }
+  
+  return (
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className={buttonClasses}
+    >
+      {children}
+    </motion.button>
+  );
+};
 
 export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
   tagline,
   title,
   description,
   ctaText,
+  ctaHref,
   images,
   className,
 }) => {
@@ -99,7 +116,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
           variants={FADE_IN_ANIMATION_VARIANTS}
           transition={{ delay: 0.6 }}
         >
-          <ActionButton>{ctaText}</ActionButton>
+          <ActionButton href={ctaHref}>{ctaText}</ActionButton>
         </motion.div>
       </div>
 
