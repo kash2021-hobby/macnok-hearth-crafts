@@ -5,11 +5,11 @@ import { Input } from "@/components/ui/input";
 
 const footerLinks = {
   shop: [
-    { name: "All Products", href: "/shop" },
-    { name: "Accessories", href: "/shop?category=accessories" },
-    { name: "Decor", href: "/shop?category=decor" },
-    { name: "Wellness", href: "/shop?category=wellness" },
-    { name: "Luxe Collection", href: "/shop?category=luxe-collection" },
+    { name: "All Products", href: { pathname: "/shop" } },
+    { name: "Accessories", href: { pathname: "/shop", search: "?category=accessories" } },
+    { name: "Decor", href: { pathname: "/shop", search: "?category=decor" } },
+    { name: "Wellness", href: { pathname: "/shop", search: "?category=wellness" } },
+    { name: "Luxe Collection", href: { pathname: "/shop", search: "?category=luxe-collection" } },
   ],
   about: [
     { name: "Our Story", href: "/about" },

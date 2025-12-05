@@ -132,7 +132,10 @@ const Shop = () => {
                   <ul className="space-y-2">
                     <li>
                       <Link
-                        to={`/shop?category=${category}`}
+                        to={{
+                          pathname: "/shop",
+                          search: `?category=${category}`
+                        }}
                         className={`block py-2 px-3 rounded-md text-sm transition-colors ${
                           !productType
                             ? "bg-primary text-primary-foreground"
@@ -145,7 +148,10 @@ const Shop = () => {
                     {subcategories.map((type) => (
                       <li key={type}>
                         <Link
-                          to={`/shop?category=${category}&type=${encodeURIComponent(type)}`}
+                          to={{
+                            pathname: "/shop",
+                            search: `?category=${category}&type=${encodeURIComponent(type)}`
+                          }}
                           className={`block py-2 px-3 rounded-md text-sm transition-colors ${
                             productType === type
                               ? "bg-primary text-primary-foreground"
