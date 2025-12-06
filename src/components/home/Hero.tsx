@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import { AnimatedMarqueeHero } from "@/components/ui/hero-3";
-import categoryEarrings from "@/assets/category-earrings.jpg";
-import categoryBags from "@/assets/category-bags.jpg";
-import categoryHair from "@/assets/category-hair.jpg";
+import categoryAccessories from "@/assets/category-accessories.webp";
+import categoryLuxe from "@/assets/category-luxe.webp";
+import categoryWellness from "@/assets/category-wellness.webp";
+import categoryDecor from "@/assets/category-decor.webp";
 
 const CATEGORY_IMAGES = [
-  categoryEarrings,
-  categoryBags,
-  categoryHair,
-  categoryEarrings,
-  categoryBags,
-  categoryHair,
-  categoryEarrings,
-  categoryBags,
+  categoryAccessories,
+  categoryLuxe,
+  categoryWellness,
+  categoryDecor,
+  categoryAccessories,
+  categoryLuxe,
+  categoryWellness,
+  categoryDecor,
 ];
 
 export const Hero = () => {
