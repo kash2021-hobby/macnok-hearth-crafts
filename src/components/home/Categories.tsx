@@ -36,7 +36,7 @@ export const Categories = ({
             pathname: "/shop",
             search: `category=${category.slug}`
           }} className="group block relative aspect-[4/5] rounded-2xl overflow-hidden hover-lift border-destructive border-2">
-                <img src={category.image} alt={category.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src={category.image} alt={category.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 border-primary" />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="font-serif text-xl lg:text-2xl font-semibold text-background mb-1">
