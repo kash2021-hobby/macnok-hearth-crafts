@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ShopifyProduct } from "@/lib/shopify";
@@ -54,7 +53,7 @@ export const ShopifyProductCard = ({
     return new Intl.NumberFormat("en-IN", {
       style: "currency",
       currency: currencyCode,
-      minimumFractionDigits: 0,
+      minimumFractionDigits: 2,
     }).format(amount);
   };
 
@@ -67,7 +66,7 @@ export const ShopifyProductCard = ({
     >
       <Link to={`/product/${node.handle}`} className="block">
         <div
-          className={`relative overflow-hidden rounded-xl bg-muted aspect-square mb-4 shadow-soft transition-all duration-500 group-hover:shadow-card ${
+          className={`relative overflow-hidden rounded-xl bg-muted aspect-square mb-5 shadow-soft transition-all duration-500 group-hover:shadow-card ${
             showBorderAnimation
               ? "ring-2 ring-primary ring-offset-2 ring-offset-background group-hover:ring-transparent"
               : ""
@@ -84,29 +83,29 @@ export const ShopifyProductCard = ({
               <span className="text-muted-foreground text-sm">No image</span>
             </div>
           )}
-
-          {/* Quick Add Button */}
-          <div className="absolute bottom-4 left-4 right-4 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400 ease-out">
-            <Button
-              onClick={handleAddToCart}
-              className="w-full bg-background/95 backdrop-blur-sm text-foreground hover:bg-background shadow-soft text-sm font-medium"
-              disabled={!firstVariant?.availableForSale}
-            >
-              <ShoppingCart className="h-4 w-4 mr-2" />
-              {firstVariant?.availableForSale ? "Add to Cart" : "Out of Stock"}
-            </Button>
-          </div>
         </div>
 
-        <div className="space-y-1.5">
-          <h3 className="font-medium text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 text-sm leading-snug">
+        <div className="space-y-2 text-center">
+          <h3 className="font-serif italic text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 text-base leading-snug underline underline-offset-2 decoration-1">
             {node.title}
           </h3>
-          <p className="text-base font-medium text-primary">
+          <p className="text-base font-normal text-foreground">
             {formatPrice(price, currency)}
           </p>
         </div>
       </Link>
+
+      {/* Add to Cart Button */}
+      <div className="mt-4 px-2">
+        <Button
+          onClick={handleAddToCart}
+          variant="outline"
+          className="w-full rounded-full border-primary text-foreground hover:bg-primary/5 hover:text-foreground font-normal text-sm py-5"
+          disabled={!firstVariant?.availableForSale}
+        >
+          {firstVariant?.availableForSale ? "Add to cart" : "Out of Stock"}
+        </Button>
+      </div>
     </motion.div>
   );
 };
