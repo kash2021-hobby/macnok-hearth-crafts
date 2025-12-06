@@ -67,7 +67,7 @@ export const FeaturedProducts = ({
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {products.map((product, index) => (
-              <ShopifyProductCard key={product.node.id} product={product} index={index} />
+              <ShopifyProductCard key={product.node.id} product={product} index={index} showBorderAnimation />
             ))}
           </div>
         )}

@@ -8,10 +8,12 @@ import { toast } from "sonner";
 interface ShopifyProductCardProps {
   product: ShopifyProduct;
   index?: number;
+  showBorderAnimation?: boolean;
 }
 export const ShopifyProductCard = ({
   product,
-  index = 0
+  index = 0,
+  showBorderAnimation = false
 }: ShopifyProductCardProps) => {
   const addItem = useCartStore(state => state.addItem);
   const setCartOpen = useCartStore(state => state.setCartOpen);
@@ -59,8 +61,8 @@ export const ShopifyProductCard = ({
     delay: index * 0.1
   }} className="group">
       <Link to={`/product/${node.handle}`} className="block">
-        <div className="relative overflow-hidden rounded-3xl bg-muted aspect-square mb-4">
-          {image ? <img src={image.url} alt={image.altText || node.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 border-primary border-solid border-2" /> : <div className="w-full h-full flex items-center justify-center bg-muted">
+        <div className={`relative overflow-hidden rounded-3xl bg-muted aspect-square mb-4 ${showBorderAnimation ? 'border-2 border-primary transition-all duration-500 group-hover:border-transparent' : ''}`}>
+          {image ? <img src={image.url} alt={image.altText || node.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" /> : <div className="w-full h-full flex items-center justify-center bg-muted">
               <span className="text-muted-foreground">No image</span>
             </div>}
           
