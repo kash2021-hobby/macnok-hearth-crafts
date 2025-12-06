@@ -61,7 +61,7 @@ export const ShopifyProductCard = ({ product, index = 0 }: ShopifyProductCardPro
       className="group"
     >
       <Link to={`/product/${node.handle}`} className="block">
-        <div className="relative overflow-hidden rounded-2xl bg-muted aspect-square mb-4">
+        <div className="relative overflow-hidden rounded-3xl bg-muted aspect-square mb-4">
           {image ? (
             <img
               src={image.url}
