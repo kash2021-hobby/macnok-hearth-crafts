@@ -118,11 +118,11 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
               className={`relative overflow-hidden rounded-t-2xl shadow-card flex-shrink-0 ${
-                index === 2 
+                index === 0 || index === 4
                   ? "w-32 md:w-48 lg:w-56 h-40 md:h-56 lg:h-64" 
                   : index === 1 || index === 3
-                  ? "w-24 md:w-36 lg:w-44 h-32 md:h-44 lg:h-52"
-                  : "w-20 md:w-28 lg:w-36 h-28 md:h-36 lg:h-44"
+                  ? "w-28 md:w-40 lg:w-48 h-36 md:h-48 lg:h-56"
+                  : "w-24 md:w-32 lg:w-40 h-32 md:h-40 lg:h-48"
               }`}
             >
               <img
