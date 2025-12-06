@@ -2,13 +2,14 @@ import { Product, Category } from "@/types/product";
 import categoryEarrings from "@/assets/category-earrings.jpg";
 import categoryBags from "@/assets/category-bags.jpg";
 import categoryHair from "@/assets/category-hair.jpg";
+import categoryAccessories from "@/assets/category-accessories.webp";
 
 export const categories: Category[] = [
   {
     id: "1",
     name: "Accessories",
     slug: "accessories",
-    image: categoryEarrings,
+    image: categoryAccessories,
     description: "Handcrafted jewelry, bags, and adornments by tribal artisans",
   },
   {
