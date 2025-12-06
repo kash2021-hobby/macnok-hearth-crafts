@@ -61,15 +61,15 @@ export const ShopifyProductCard = ({ product, index = 0 }: ShopifyProductCardPro
       className="group"
     >
       <Link to={`/product/${node.handle}`} className="block">
-        <div className="relative overflow-hidden rounded-3xl bg-muted aspect-square mb-4">
+        <div className="relative overflow-hidden rounded-[20px] bg-[#F5F1E8] aspect-[3/4] mb-4 p-6">
           {image ? (
             <img
               src={image.url}
               alt={image.altText || node.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover rounded-[12px] transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center bg-muted">
+            <div className="w-full h-full flex items-center justify-center rounded-[12px] bg-muted">
               <span className="text-muted-foreground">No image</span>
             </div>
           )}
