@@ -7,12 +7,10 @@ import { toast } from "sonner";
 interface ShopifyProductCardProps {
   product: ShopifyProduct;
   index?: number;
-  showBorderAnimation?: boolean;
 }
 export const ShopifyProductCard = ({
   product,
-  index = 0,
-  showBorderAnimation = false
+  index = 0
 }: ShopifyProductCardProps) => {
   const addItem = useCartStore(state => state.addItem);
   const setCartOpen = useCartStore(state => state.setCartOpen);
@@ -62,7 +60,7 @@ export const ShopifyProductCard = ({
     ease: "easeOut"
   }} className="group h-full flex flex-col">
       <Link to={`/product/${node.handle}`} className="block flex-1 flex flex-col">
-        <div className={`relative overflow-hidden rounded-xl bg-muted aspect-square mb-5 shadow-soft transition-all duration-500 group-hover:shadow-card ${showBorderAnimation ? "ring-2 ring-primary ring-offset-2 ring-offset-background group-hover:ring-transparent" : ""}`}>
+        <div className="relative overflow-hidden rounded-xl bg-muted aspect-square mb-5 shadow-soft transition-all duration-500 group-hover:shadow-card">
           {image ? <img src={image.url} alt={image.altText || node.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" /> : <div className="w-full h-full flex items-center justify-center bg-muted">
               <span className="text-muted-foreground text-sm">No image</span>
             </div>}

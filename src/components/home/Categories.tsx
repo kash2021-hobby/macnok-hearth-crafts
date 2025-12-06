@@ -37,7 +37,7 @@ export const Categories = ({ className }: CategoriesProps) => {
                   pathname: "/shop",
                   search: `category=${category.slug}`,
                 }}
-                className="group block relative aspect-[4/5] rounded-xl overflow-hidden shadow-soft hover:shadow-card transition-all duration-500"
+                className="group block relative aspect-[4/5] rounded-xl overflow-hidden shadow-soft hover:shadow-card transition-all duration-500 ring-2 ring-primary ring-offset-2 ring-offset-background hover:ring-transparent"
               >
                 <img
                   src={category.image}
