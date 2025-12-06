@@ -69,7 +69,7 @@ export const ShopifyProductCard = ({
         </div>
 
         <div className="space-y-2 text-center flex-1 flex flex-col justify-start">
-          <h3 className="font-serif italic text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 text-base leading-snug underline underline-offset-2 decoration-1">
+          <h3 className="italic text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 text-base leading-snug underline underline-offset-2 decoration-1 font-sans font-normal">
             {node.title}
           </h3>
           <p className="text-base font-normal text-foreground">
