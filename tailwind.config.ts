@@ -72,16 +72,24 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "calc(var(--radius) + 4px)",
+        "2xl": "calc(var(--radius) + 8px)",
       },
       boxShadow: {
         soft: "var(--shadow-soft)",
         card: "var(--shadow-card)",
         elevated: "var(--shadow-elevated)",
+        premium: "var(--shadow-premium)",
       },
       backgroundImage: {
         "gradient-warm": "var(--gradient-warm)",
         "gradient-hero": "var(--gradient-hero)",
         "gradient-card": "var(--gradient-card)",
+        "gradient-overlay": "var(--gradient-overlay)",
+      },
+      letterSpacing: {
+        premium: "0.15em",
+        elegant: "0.08em",
       },
       keyframes: {
         "accordion-down": {

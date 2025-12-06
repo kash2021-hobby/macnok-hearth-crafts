@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    /* House of Macnok - Warm, Earthy, Cultural */
-    --background: 30 100% 96%;
+    /* House of Macnok - Premium, Warm, Cultural */
+    --background: 30 60% 98%;
     --foreground: 25 30% 12%;
 
-    --card: 40 25% 95%;
+    --card: 40 30% 97%;
     --card-foreground: 25 30% 12%;
 
     --popover: 40 30% 97%;
@@ -17,10 +17,10 @@
     --primary: 25 55% 42%;
     --primary-foreground: 40 30% 97%;
 
-    --secondary: 35 25% 88%;
+    --secondary: 35 25% 90%;
     --secondary-foreground: 25 30% 20%;
 
-    --muted: 35 20% 92%;
+    --muted: 35 20% 94%;
     --muted-foreground: 25 15% 45%;
 
     --accent: 175 45% 35%;
@@ -29,14 +29,14 @@
     --destructive: 0 65% 50%;
     --destructive-foreground: 40 30% 97%;
 
-    --border: 35 20% 85%;
-    --input: 35 20% 85%;
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
     --ring: 25 55% 42%;
 
-    --radius: 0.75rem;
+    --radius: 0.625rem;
 
     /* Custom tokens */
-    --cream: 40 35% 94%;
+    --cream: 40 35% 96%;
     --terracotta: 18 60% 50%;
     --warm-brown: 25 40% 30%;
     --soft-teal: 175 40% 45%;
@@ -45,14 +45,16 @@
     --nav-footer: 24 56% 42%;
 
     /* Gradients */
-    --gradient-warm: linear-gradient(135deg, hsl(35 40% 92%) 0%, hsl(40 30% 97%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(35 35% 90% / 0.8) 0%, hsl(40 30% 97% / 0.95) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(40 25% 96%) 0%, hsl(35 20% 92%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(35 40% 94%) 0%, hsl(40 30% 98%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(35 35% 92% / 0.8) 0%, hsl(40 30% 98% / 0.95) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(40 30% 98%) 0%, hsl(35 20% 94%) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(25 30% 8% / 0.7) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(25 30% 20% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(25 30% 20% / 0.12);
-    --shadow-elevated: 0 20px 50px -15px hsl(25 30% 20% / 0.15);
+    /* Premium Shadows */
+    --shadow-soft: 0 2px 12px -2px hsl(25 30% 20% / 0.06);
+    --shadow-card: 0 4px 20px -4px hsl(25 30% 20% / 0.08);
+    --shadow-elevated: 0 12px 40px -12px hsl(25 30% 20% / 0.12);
+    --shadow-premium: 0 8px 30px -6px hsl(25 30% 20% / 0.1);
 
     --sidebar-background: 40 30% 97%;
     --sidebar-foreground: 25 30% 12%;
@@ -112,16 +114,18 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'DM Sans', sans-serif;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
+    letter-spacing: -0.02em;
   }
 }
 
 @layer components {
   .container-main {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-10;
   }
 
   .text-balance {
@@ -129,31 +133,46 @@
   }
 
   .hover-lift {
-    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-card;
+    @apply transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-premium;
   }
 
   .link-underline {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-current after:transition-all after:duration-500 after:ease-out hover:after:w-full;
+  }
+
+  /* Premium section spacing */
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+
+  /* Premium card style */
+  .premium-card {
+    @apply bg-card rounded-xl shadow-soft transition-all duration-500 hover:shadow-card;
+  }
+
+  /* Elegant label */
+  .premium-label {
+    @apply text-xs font-medium tracking-[0.2em] text-primary uppercase;
   }
 }
 
 @layer utilities {
   .animate-fade-up {
-    animation: fadeUp 0.6s ease-out forwards;
+    animation: fadeUp 0.7s ease-out forwards;
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.4s ease-out forwards;
+    animation: scaleIn 0.5s ease-out forwards;
   }
 
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(24px);
     }
     to {
       opacity: 1;
@@ -169,7 +188,7 @@
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(0.96);
     }
     to {
       opacity: 1;
@@ -181,4 +200,13 @@
   .stagger-2 { animation-delay: 0.2s; }
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
+
+  /* Premium letter spacing utilities */
+  .tracking-premium {
+    letter-spacing: 0.15em;
+  }
+
+  .tracking-elegant {
+    letter-spacing: 0.08em;
+  }
 }

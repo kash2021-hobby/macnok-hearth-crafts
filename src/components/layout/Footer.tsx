@@ -27,37 +27,37 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="bg-[hsl(var(--nav-footer))] border-t border-white/20 text-white">
+    <footer className="bg-[hsl(var(--nav-footer))] border-t border-white/10 text-white">
       {/* Newsletter Section */}
-      <div className="container-main py-16 lg:py-20">
-        <div className="max-w-xl mx-auto text-center mb-16">
-          <h3 className="font-serif text-2xl lg:text-3xl mb-4">
+      <div className="container-main py-20 lg:py-24">
+        <div className="max-w-md mx-auto text-center mb-16">
+          <h3 className="font-serif text-2xl lg:text-3xl font-medium mb-4 tracking-wide">
             Join Our Community
           </h3>
-          <p className="text-white/80 mb-6">
+          <p className="text-white/70 mb-8 text-base leading-relaxed">
             Subscribe to receive updates on new collections, artisan stories, and exclusive offers.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 h-12"
+              className="flex-1 h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-white/40"
             />
-            <Button variant="default" size="lg">
+            <Button variant="default" size="lg" className="bg-white text-foreground hover:bg-white/90">
               Subscribe
             </Button>
           </div>
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-16">
           <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="inline-block mb-4">
-              <span className="font-serif text-xl font-semibold">
+            <Link to="/" className="inline-block mb-5">
+              <span className="font-serif text-xl font-medium tracking-wide">
                 House of Macnok
               </span>
             </Link>
-            <p className="text-sm text-white/80 mb-4">
+            <p className="text-sm text-white/70 mb-5 leading-relaxed">
               Embracing the Roof of Arunachal
             </p>
             <div className="flex gap-4">
@@ -65,7 +65,7 @@ export const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-white/60 hover:text-white transition-colors duration-300"
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -73,13 +73,13 @@ export const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-white/60 hover:text-white transition-colors duration-300"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="mailto:hello@houseofmacnok.com"
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-white/60 hover:text-white transition-colors duration-300"
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -87,13 +87,13 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-medium mb-4">Shop</h4>
+            <h4 className="font-medium mb-5 text-sm tracking-wide">Shop</h4>
             <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-sm text-white/80 hover:text-white transition-colors"
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -103,13 +103,13 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-medium mb-4">About</h4>
+            <h4 className="font-medium mb-5 text-sm tracking-wide">About</h4>
             <ul className="space-y-3">
               {footerLinks.about.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-sm text-white/80 hover:text-white transition-colors"
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -119,13 +119,13 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-medium mb-4">Support</h4>
+            <h4 className="font-medium mb-5 text-sm tracking-wide">Support</h4>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-sm text-white/80 hover:text-white transition-colors"
+                    className="text-sm text-white/60 hover:text-white transition-colors duration-300"
                   >
                     {link.name}
                   </Link>
@@ -137,14 +137,14 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/20">
-        <div className="container-main py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/80">
+      <div className="border-t border-white/10">
+        <div className="container-main py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/50">
           <p>© 2024 House of Macnok. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-white transition-colors">
+          <div className="flex gap-8">
+            <Link to="/privacy" className="hover:text-white transition-colors duration-300">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-white transition-colors">
+            <Link to="/terms" className="hover:text-white transition-colors duration-300">
               Terms of Service
             </Link>
           </div>

@@ -41,18 +41,21 @@ export const FeaturedProducts = ({
   }
 
   return (
-    <section className="py-20 lg:py-28 bg-card">
+    <section className="py-24 lg:py-32 bg-card/50">
       <div className="container-main">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-14">
           <div>
-            <h2 className="font-serif text-3xl lg:text-4xl font-semibold mb-2">
+            <span className="text-xs font-medium tracking-[0.2em] text-primary uppercase mb-3 block">
+              Featured
+            </span>
+            <h2 className="font-serif text-3xl lg:text-4xl font-medium mb-2">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-muted-foreground">{subtitle}</p>
+              <p className="text-muted-foreground text-base">{subtitle}</p>
             )}
           </div>
-          <Button variant="ghost" asChild className="group">
+          <Button variant="ghost" asChild className="group text-sm">
             <Link to="/shop">
               View All
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -61,11 +64,11 @@ export const FeaturedProducts = ({
         </div>
 
         {isLoading ? (
-          <div className="flex justify-center py-12">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <div className="flex justify-center py-16">
+            <Loader2 className="h-6 w-6 animate-spin text-primary" />
           </div>
         ) : (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
             {products.map((product, index) => (
               <ShopifyProductCard key={product.node.id} product={product} index={index} showBorderAnimation />
             ))}
