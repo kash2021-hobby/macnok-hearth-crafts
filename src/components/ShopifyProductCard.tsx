@@ -60,15 +60,15 @@ export const ShopifyProductCard = ({
     delay: index * 0.08,
     duration: 0.5,
     ease: "easeOut"
-  }} className="group">
-      <Link to={`/product/${node.handle}`} className="block">
+  }} className="group h-full flex flex-col">
+      <Link to={`/product/${node.handle}`} className="block flex-1 flex flex-col">
         <div className={`relative overflow-hidden rounded-xl bg-muted aspect-square mb-5 shadow-soft transition-all duration-500 group-hover:shadow-card ${showBorderAnimation ? "ring-2 ring-primary ring-offset-2 ring-offset-background group-hover:ring-transparent" : ""}`}>
           {image ? <img src={image.url} alt={image.altText || node.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" /> : <div className="w-full h-full flex items-center justify-center bg-muted">
               <span className="text-muted-foreground text-sm">No image</span>
             </div>}
         </div>
 
-        <div className="space-y-2 text-center">
+        <div className="space-y-2 text-center flex-1 flex flex-col justify-start">
           <h3 className="font-serif italic text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2 text-base leading-snug underline underline-offset-2 decoration-1">
             {node.title}
           </h3>
@@ -79,7 +79,7 @@ export const ShopifyProductCard = ({
       </Link>
 
       {/* Add to Cart Button */}
-      <div className="mt-4 px-2">
+      <div className="mt-auto pt-4 px-2">
         <Button onClick={handleAddToCart} variant="outline" disabled={!firstVariant?.availableForSale} className="w-full rounded-full border-primary text-foreground hover:bg-primary/5 hover:text-foreground font-normal text-sm py-5 border-2">
           {firstVariant?.availableForSale ? "Add to cart" : "Out of Stock"}
         </Button>
