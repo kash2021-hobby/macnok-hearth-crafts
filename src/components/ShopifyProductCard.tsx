@@ -60,7 +60,7 @@ export const ShopifyProductCard = ({
   }} className="group">
       <Link to={`/product/${node.handle}`} className="block">
         <div className="relative overflow-hidden rounded-3xl bg-muted aspect-square mb-4">
-          {image ? <img src={image.url} alt={image.altText || node.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 border-primary border-2" /> : <div className="w-full h-full flex items-center justify-center bg-muted">
+          {image ? <img src={image.url} alt={image.altText || node.title} className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 border-primary border-2 group-hover:border-transparent" /> : <div className="w-full h-full flex items-center justify-center bg-muted">
               <span className="text-muted-foreground">No image</span>
             </div>}
           
