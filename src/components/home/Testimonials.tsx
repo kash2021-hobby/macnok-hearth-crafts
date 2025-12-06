@@ -3,15 +3,16 @@ import { motion } from "framer-motion";
 
 export const Testimonials = () => {
   useEffect(() => {
-    // Load Elfsight script
+    // Load Reviews on My Website script
     const script = document.createElement("script");
-    script.src = "https://static.elfsight.com/platform/platform.js";
-    script.async = true;
+    script.src = "https://reviewsonmywebsite.com/js/v2/embed.js?id=4a24b3ba631386ba5f4ec3ef018ac9ca";
+    script.type = "text/javascript";
+    script.defer = true;
     document.body.appendChild(script);
 
     return () => {
       // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]');
+      const existingScript = document.querySelector('script[src*="reviewsonmywebsite.com"]');
       if (existingScript) {
         existingScript.remove();
       }
@@ -36,7 +37,7 @@ export const Testimonials = () => {
           </h2>
         </motion.div>
 
-        {/* Elfsight Google Reviews Widget */}
+        {/* Reviews on My Website Widget */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,8 +45,8 @@ export const Testimonials = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <div 
-            className="elfsight-app-849aa639-c896-4996-bee5-856df809bd2a" 
-            data-elfsight-app-lazy
+            data-romw-token="fcjvXjrbOPxv4uyargVReHg9zxJijI5NciDaJV4O8QrR5rdWYw" 
+            data-romw-lazy
           />
         </motion.div>
       </div>
