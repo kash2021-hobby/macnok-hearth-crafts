@@ -35,6 +35,7 @@ export const FeaturedProducts = ({
     loadProducts();
   }, [limit]);
 
+  // Don't render the section if there are no products and not loading
   if (!isLoading && products.length === 0) {
     return null;
   }
@@ -44,17 +45,17 @@ export const FeaturedProducts = ({
       <div className="container-main">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
           <div>
-            <h2 className="font-serif text-3xl lg:text-4xl font-semibold mb-2 text-foreground">
+            <h2 className="font-serif text-3xl lg:text-4xl font-semibold mb-2">
               {title}
             </h2>
             {subtitle && (
               <p className="text-muted-foreground">{subtitle}</p>
             )}
           </div>
-          <Button variant="link" asChild className="group text-foreground hover:text-primary p-0">
-            <Link to="/shop" className="flex items-center gap-2">
+          <Button variant="ghost" asChild className="group">
+            <Link to="/shop">
               View All
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
         </div>
@@ -64,7 +65,7 @@ export const FeaturedProducts = ({
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {products.map((product, index) => (
               <ShopifyProductCard key={product.node.id} product={product} index={index} />
             ))}
