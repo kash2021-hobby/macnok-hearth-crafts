@@ -36,18 +36,18 @@ export const StorySection = () => {
   }, [nextSlide]);
 
   return (
-    <section className="py-20 lg:py-28 overflow-hidden">
+    <section className="py-24 lg:py-32 overflow-hidden">
       <div className="container-main">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-24 items-center">
           {/* Image Carousel */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative group"
           >
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden relative">
+            <div className="aspect-[4/5] rounded-xl overflow-hidden relative shadow-card">
               {storyImages.map((image, index) => (
                 <img
                   key={index}
@@ -58,60 +58,60 @@ export const StorySection = () => {
                   }`}
                 />
               ))}
-              
+
               {/* Navigation Arrows */}
               <button
                 onClick={prevSlide}
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-all opacity-0 group-hover:opacity-100 cursor-pointer shadow-lg"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer shadow-soft"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-all opacity-0 group-hover:opacity-100 cursor-pointer shadow-lg"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-background transition-all duration-300 opacity-0 group-hover:opacity-100 cursor-pointer shadow-soft"
                 aria-label="Next image"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
 
               {/* Dots Indicator */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
                 {storyImages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
+                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                       index === currentIndex
                         ? "bg-background w-6"
-                        : "bg-background/50 hover:bg-background/70"
+                        : "bg-background/50 w-1.5 hover:bg-background/70"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
             </div>
-            
+
             {/* Decorative elements */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-full -z-10" />
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-full -z-10" />
+            <div className="absolute -bottom-8 -right-8 w-36 h-36 bg-accent/10 rounded-full -z-10" />
+            <div className="absolute -top-8 -left-8 w-28 h-28 bg-primary/5 rounded-full -z-10" />
           </motion.div>
 
           {/* Content */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:pl-8"
+            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
+            className="lg:pl-4"
           >
-            <span className="text-sm font-medium tracking-wider text-primary uppercase mb-4 block">
+            <span className="text-xs font-medium tracking-[0.2em] text-primary uppercase mb-5 block">
               Our Story
             </span>
-            <h2 className="font-serif text-3xl lg:text-4xl font-semibold mb-6 leading-tight">
+            <h2 className="font-serif text-3xl lg:text-4xl font-medium mb-6 leading-tight">
               Empowering Women Artisans of Arunachal Pradesh
             </h2>
-            <div className="space-y-4 text-muted-foreground mb-8">
+            <div className="space-y-4 text-muted-foreground mb-10 text-base leading-relaxed">
               <p>
                 Founded by Ninna Lego, House of Macnok is more than a brand—it's a
                 movement to preserve and celebrate the rich cultural heritage of
@@ -126,31 +126,31 @@ export const StorySection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mb-8 py-6 border-y border-border">
+            <div className="grid grid-cols-3 gap-8 mb-10 py-8 border-y border-border/60">
               <div>
-                <span className="font-serif text-3xl font-semibold text-primary block">
+                <span className="font-serif text-3xl lg:text-4xl font-medium text-primary block">
                   50+
                 </span>
-                <span className="text-sm text-muted-foreground">Artisans</span>
+                <span className="text-sm text-muted-foreground mt-1 block">Artisans</span>
               </div>
               <div>
-                <span className="font-serif text-3xl font-semibold text-primary block">
+                <span className="font-serif text-3xl lg:text-4xl font-medium text-primary block">
                   12
                 </span>
-                <span className="text-sm text-muted-foreground">Villages</span>
+                <span className="text-sm text-muted-foreground mt-1 block">Villages</span>
               </div>
               <div>
-                <span className="font-serif text-3xl font-semibold text-primary block">
+                <span className="font-serif text-3xl lg:text-4xl font-medium text-primary block">
                   5+
                 </span>
-                <span className="text-sm text-muted-foreground">Years</span>
+                <span className="text-sm text-muted-foreground mt-1 block">Years</span>
               </div>
             </div>
 
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="hero" size="lg" asChild className="group">
               <Link to="/about">
                 Learn More
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </motion.div>
