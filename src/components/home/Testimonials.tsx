@@ -88,10 +88,17 @@ export const Testimonials = () => {
               </div>
             )}
 
-            {/* Error State */}
-            {hasError && (
-              <div className="text-center py-8 text-muted-foreground">
-                <p>Unable to load reviews at this time. Please check back later.</p>
+            {/* Error State or Widget Not Loading Fallback */}
+            {(hasError || !isLoading) && (
+              <div className="text-center py-8">
+                <a 
+                  href="https://g.page/r/CYQExample/review" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors"
+                >
+                  View our Google Reviews →
+                </a>
               </div>
             )}
 
