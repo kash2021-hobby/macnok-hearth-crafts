@@ -19,34 +19,34 @@ const navLinks = [{
 }];
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  return <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+  return <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-[hsl(var(--nav-footer))] backdrop-blur">
       <nav className="container-main">
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Mobile menu button */}
-          <button className="lg:hidden p-2 -ml-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          <button className="lg:hidden p-2 -ml-2 text-white" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-serif text-xl lg:text-2xl font-semibold tracking-tight text-foreground">
+            <span className="font-serif text-xl lg:text-2xl font-semibold tracking-tight text-white">
               House of Macnok 
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map(link => <Link key={link.name} to={link.href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors link-underline">
+            {navLinks.map(link => <Link key={link.name} to={link.href} className="text-sm font-medium text-white/80 hover:text-white transition-colors link-underline">
                 {link.name}
               </Link>)}
           </div>
 
           {/* Right Icons */}
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="hidden sm:flex">
+            <Button variant="ghost" size="icon" className="hidden sm:flex text-white/80 hover:text-white hover:bg-white/10">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="hidden sm:flex">
+            <Button variant="ghost" size="icon" className="hidden sm:flex text-white/80 hover:text-white hover:bg-white/10">
               <User className="h-5 w-5" />
             </Button>
             <ShopifyCartDrawer />
@@ -67,8 +67,8 @@ export const Navbar = () => {
         }} transition={{
           duration: 0.3
         }} className="lg:hidden overflow-hidden">
-              <div className="py-4 space-y-3 border-t border-border">
-                {navLinks.map(link => <Link key={link.name} to={link.href} className="block py-2 text-base font-medium text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+              <div className="py-4 space-y-3 border-t border-white/20">
+                {navLinks.map(link => <Link key={link.name} to={link.href} className="block py-2 text-base font-medium text-white/80 hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
                     {link.name}
                   </Link>)}
               </div>
