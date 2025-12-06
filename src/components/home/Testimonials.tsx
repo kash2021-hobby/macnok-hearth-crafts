@@ -1,20 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 export const Testimonials = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // Load Reviews on My Website script
+    // Remove any existing script first
+    const existingScript = document.querySelector('script[src*="reviewsonmywebsite.com"]');
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    // Create and load the Reviews on My Website script
     const script = document.createElement("script");
     script.src = "https://reviewsonmywebsite.com/js/v2/embed.js?id=4a24b3ba631386ba5f4ec3ef018ac9ca";
     script.type = "text/javascript";
-    script.defer = true;
-    document.body.appendChild(script);
+    script.async = true;
+    document.head.appendChild(script);
 
     return () => {
       // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src*="reviewsonmywebsite.com"]');
-      if (existingScript) {
-        existingScript.remove();
+      const scriptToRemove = document.querySelector('script[src*="reviewsonmywebsite.com"]');
+      if (scriptToRemove) {
+        scriptToRemove.remove();
       }
     };
   }, []);
@@ -40,18 +48,17 @@ export const Testimonials = () => {
 
           {/* Reviews Widget Container */}
           <motion.div
+            ref={containerRef}
             className="max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div data-romw-token="fcjvXjrbOPxv4uyargVReHg9zxJijI5NciDaJV4O8QrR5rdWYw" data-romw-lazy></div>
-            <script
-              src="https://reviewsonmywebsite.com/js/v2/embed.js?id=4a24b3ba631386ba5f4ec3ef018ac9ca"
-              type="text/javascript"
-              defer
-            ></script>
+            <div 
+              data-romw-token="fcjvXjrbOPxv4uyargVReHg9zxJijI5NciDaJV4O8QrR5rdWYw" 
+              data-romw-lazy
+            ></div>
           </motion.div>
         </div>
       </div>
