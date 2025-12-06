@@ -103,37 +103,68 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Bottom Image Gallery */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
-        className="container-main pb-8"
-      >
-        <div className="flex items-end justify-center gap-3 md:gap-4 lg:gap-6 overflow-hidden">
-          {HERO_IMAGES.map((image, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
-              className={`relative overflow-hidden rounded-t-2xl shadow-card flex-shrink-0 ${
-                index === 0 || index === 4
-                  ? "w-32 md:w-48 lg:w-56 h-40 md:h-56 lg:h-64" 
-                  : index === 1 || index === 3
-                  ? "w-28 md:w-40 lg:w-48 h-36 md:h-48 lg:h-56"
-                  : "w-24 md:w-32 lg:w-40 h-32 md:h-40 lg:h-48"
-              }`}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+      {/* Bottom Image Gallery with Corner Images */}
+      <div className="relative container-main pb-8">
+        {/* Top Left Corner Image */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="absolute left-4 md:left-8 lg:left-16 top-0 md:-top-8 lg:-top-12 w-24 md:w-32 lg:w-40 h-32 md:h-40 lg:h-48 rounded-2xl shadow-card overflow-hidden z-10"
+        >
+          <img
+            src={categoryAccessories}
+            alt="Handcrafted Accessories"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </motion.div>
+
+        {/* Top Right Corner Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="absolute right-4 md:right-8 lg:right-16 top-0 md:-top-8 lg:-top-12 w-24 md:w-32 lg:w-40 h-32 md:h-40 lg:h-48 rounded-2xl shadow-card overflow-hidden z-10"
+        >
+          <img
+            src={categoryDecor}
+            alt="Home Decor"
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </motion.div>
+
+        {/* Bottom Row Gallery */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+          className="pt-24 md:pt-28 lg:pt-32"
+        >
+          <div className="flex items-end justify-center gap-3 md:gap-4 lg:gap-6 overflow-hidden">
+            {HERO_IMAGES.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
+                className={`relative overflow-hidden rounded-t-2xl shadow-card flex-shrink-0 ${
+                  index === 0 || index === 4
+                    ? "w-32 md:w-48 lg:w-56 h-40 md:h-56 lg:h-64" 
+                    : index === 1 || index === 3
+                    ? "w-28 md:w-40 lg:w-48 h-36 md:h-48 lg:h-56"
+                    : "w-24 md:w-32 lg:w-40 h-32 md:h-40 lg:h-48"
+                }`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };
