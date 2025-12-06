@@ -60,7 +60,7 @@ export const ShopifyProductCard = ({
     ease: "easeOut"
   }} className="group h-full flex flex-col">
       <Link to={`/product/${node.handle}`} className="block flex-1 flex flex-col">
-        <div className="relative overflow-hidden rounded-xl bg-muted aspect-square mb-5 shadow-soft transition-all duration-500 group-hover:shadow-card">
+        <div className="relative overflow-hidden rounded-t-xl bg-muted aspect-square mb-5 shadow-soft transition-all duration-500 group-hover:shadow-card">
           {image ? <img src={image.url} alt={image.altText || node.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" /> : <div className="w-full h-full flex items-center justify-center bg-muted">
               <span className="text-muted-foreground text-sm">No image</span>
             </div>}
