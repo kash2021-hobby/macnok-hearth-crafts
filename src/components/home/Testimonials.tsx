@@ -98,8 +98,7 @@ export const Testimonials = () => {
             {/* Reviews Widget */}
             <div 
               id="romw-widget"
-              data-romw-token="fcjvXjrbOPxv4uyargVReHg9zxJijI5NciDaJV4O8QrR5rdWYw" 
-              data-romw-lazy
+              data-romw-token="fcjvXjrbOPxv4uyargVReHg9zxJijI5NciDaJV4O8QrR5rdWYw"
               className={isLoading ? "opacity-0 h-0 overflow-hidden" : "opacity-100 transition-opacity duration-500"}
             ></div>
           </motion.div>
