@@ -42,6 +42,7 @@
     --soft-teal: 175 40% 45%;
     --golden: 42 70% 55%;
     --sage: 120 15% 70%;
+    --nav-footer: 24 56% 42%;
 
     /* Gradients */
     --gradient-warm: linear-gradient(135deg, hsl(35 40% 92%) 0%, hsl(40 30% 97%) 100%);

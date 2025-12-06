@@ -27,14 +27,14 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-[hsl(var(--nav-footer))] border-t border-white/20 text-white">
       {/* Newsletter Section */}
       <div className="container-main py-16 lg:py-20">
         <div className="max-w-xl mx-auto text-center mb-16">
           <h3 className="font-serif text-2xl lg:text-3xl mb-4">
             Join Our Community
           </h3>
-          <p className="text-muted-foreground mb-6">
+          <p className="text-white/80 mb-6">
             Subscribe to receive updates on new collections, artisan stories, and exclusive offers.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -57,7 +57,7 @@ export const Footer = () => {
                 House of Macnok
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground mb-4">
+            <p className="text-sm text-white/80 mb-4">
               Embracing the Roof of Arunachal
             </p>
             <div className="flex gap-4">
@@ -65,7 +65,7 @@ export const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-white/80 hover:text-white transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -73,13 +73,13 @@ export const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-white/80 hover:text-white transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="mailto:hello@houseofmacnok.com"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-white/80 hover:text-white transition-colors"
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -93,7 +93,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-white/80 hover:text-white transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -109,7 +109,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-white/80 hover:text-white transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -125,7 +125,7 @@ export const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-white/80 hover:text-white transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -137,14 +137,14 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border">
-        <div className="container-main py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+      <div className="border-t border-white/20">
+        <div className="container-main py-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/80">
           <p>© 2024 House of Macnok. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-foreground transition-colors">
+            <Link to="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-foreground transition-colors">
+            <Link to="/terms" className="hover:text-white transition-colors">
               Terms of Service
             </Link>
           </div>
