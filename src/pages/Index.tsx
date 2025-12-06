@@ -9,8 +9,8 @@ const Index = () => {
   return <Layout>
       <Hero />
       <Categories className="border-sidebar-ring bg-primary-foreground" />
-      <FeaturedProducts title="Our Collection" subtitle="Handcrafted treasures from Arunachal Pradesh" limit={8} />
       <StorySection />
+      <FeaturedProducts title="Our Collection" subtitle="Handcrafted treasures from Arunachal Pradesh" limit={8} />
       <ImpactSection />
       <Testimonials />
     </Layout>;
