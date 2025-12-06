@@ -27,13 +27,13 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section className="py-20 lg:py-28">
+    <section className="py-20 lg:py-28 bg-background">
       <div className="container-main">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium tracking-wider text-primary uppercase mb-4 block">
+          <span className="text-sm font-medium tracking-wider text-accent uppercase mb-4 block">
             Customer Love
           </span>
-          <h2 className="font-serif text-3xl lg:text-4xl font-semibold">
+          <h2 className="font-serif text-3xl lg:text-4xl font-semibold text-foreground">
             What Our Community Says
           </h2>
         </div>
@@ -46,7 +46,7 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-card rounded-2xl p-8 relative hover-lift"
+              className="bg-card border border-border rounded-lg p-8 relative card-hover"
             >
               <Quote className="absolute top-6 right-6 h-10 w-10 text-primary/10" />
               
@@ -62,7 +62,7 @@ export const Testimonials = () => {
               </p>
 
               <div>
-                <p className="font-medium">{testimonial.name}</p>
+                <p className="font-medium text-foreground">{testimonial.name}</p>
                 <p className="text-sm text-muted-foreground">{testimonial.location}</p>
               </div>
             </motion.div>

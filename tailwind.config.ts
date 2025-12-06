@@ -50,9 +50,14 @@ export default {
         cream: "hsl(var(--cream))",
         terracotta: "hsl(var(--terracotta))",
         "warm-brown": "hsl(var(--warm-brown))",
-        "soft-teal": "hsl(var(--soft-teal))",
+        "brown-accent": "hsl(var(--brown-accent))",
+        "soft-beige": "hsl(var(--soft-beige))",
         golden: "hsl(var(--golden))",
         sage: "hsl(var(--sage))",
+        footer: {
+          DEFAULT: "hsl(var(--footer-bg))",
+          foreground: "hsl(var(--footer-foreground))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
