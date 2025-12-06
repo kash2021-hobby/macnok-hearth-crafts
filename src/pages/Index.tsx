@@ -8,8 +8,8 @@ import { Testimonials } from "@/components/home/Testimonials";
 const Index = () => {
   return <Layout>
       <Hero />
-      <StorySection />
       <Categories className="border-sidebar-ring bg-primary-foreground" />
+      <StorySection />
       <FeaturedProducts title="Our Collection" subtitle="Handcrafted treasures from Arunachal Pradesh" limit={8} />
       <ImpactSection />
       <Testimonials />
