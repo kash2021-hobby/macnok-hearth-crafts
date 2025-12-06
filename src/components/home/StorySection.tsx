@@ -8,10 +8,10 @@ import story1 from "@/assets/story-1.webp";
 import story2 from "@/assets/story-2.webp";
 import story3 from "@/assets/story-3.webp";
 import story4 from "@/assets/story-4.webp";
-import artisanStory from "@/assets/artisan-story.jpg";
+import artisanStory from "@/assets/artisan-story.webp";
 
 const storyImages = [
-  { src: artisanStory, alt: "Artisan at work" },
+  { src: artisanStory, alt: "Woman wearing artisan jewelry and accessories" },
   { src: story1, alt: "Happy customer with artisan jewelry" },
   { src: story2, alt: "Customer wearing handmade necklace" },
   { src: story3, alt: "Artisans crafting together" },
