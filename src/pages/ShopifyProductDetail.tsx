@@ -112,7 +112,7 @@ const ShopifyProductDetail = () => {
             animate={{ opacity: 1, x: 0 }}
             className="space-y-4"
           >
-            <div className="aspect-square rounded-2xl overflow-hidden bg-muted">
+            <div className="aspect-square rounded-3xl overflow-hidden bg-muted">
               {images[selectedImage]?.node ? (
                 <img
                   src={images[selectedImage].node.url}
