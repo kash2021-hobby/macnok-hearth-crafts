@@ -25,16 +25,14 @@ export const Testimonials = () => {
         {/* Reviews Card Container */}
         <div className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-3xl p-8 md:p-12 lg:p-16 shadow-sm">
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             className="text-center mb-10 md:mb-14"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-sm font-medium tracking-wider text-primary uppercase mb-4 block">
-              Customer Love
-            </span>
+            <span className="text-sm font-medium tracking-wider text-primary uppercase mb-4 block">Customer Love</span>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground">
               What Our Customers Say
             </h2>
@@ -48,12 +46,12 @@ export const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="w-full overflow-hidden">
-              <div 
-                data-romw-token="fcjvXjrbOPxv4uyargVReHg9zxJijI5NciDaJV4O8QrR5rdWYw" 
-                data-romw-lazy
-              />
-            </div>
+            <div data-romw-token="fcjvXjrbOPxv4uyargVReHg9zxJijI5NciDaJV4O8QrR5rdWYw" data-romw-lazy></div>
+            <script
+              src="https://reviewsonmywebsite.com/js/v2/embed.js?id=4a24b3ba631386ba5f4ec3ef018ac9ca"
+              type="text/javascript"
+              defer
+            ></script>
           </motion.div>
         </div>
       </div>
