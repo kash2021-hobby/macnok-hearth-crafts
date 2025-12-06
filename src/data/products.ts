@@ -3,6 +3,9 @@ import categoryEarrings from "@/assets/category-earrings.jpg";
 import categoryBags from "@/assets/category-bags.jpg";
 import categoryHair from "@/assets/category-hair.jpg";
 import categoryAccessories from "@/assets/category-accessories.webp";
+import categoryLuxe from "@/assets/category-luxe.webp";
+import categoryWellness from "@/assets/category-wellness.webp";
+import categoryDecor from "@/assets/category-decor.webp";
 
 export const categories: Category[] = [
   {
@@ -16,21 +19,21 @@ export const categories: Category[] = [
     id: "2",
     name: "Decor",
     slug: "decor",
-    image: categoryBags,
+    image: categoryDecor,
     description: "Artisan home decor celebrating ancestral craftsmanship",
   },
   {
     id: "3",
     name: "Wellness",
     slug: "wellness",
-    image: categoryHair,
+    image: categoryWellness,
     description: "Natural wellness products rooted in traditional wisdom",
   },
   {
     id: "4",
     name: "Luxe Collection",
     slug: "luxe-collection",
-    image: categoryEarrings,
+    image: categoryLuxe,
     description: "Premium handcrafted pieces for the discerning collector",
   },
 ];
